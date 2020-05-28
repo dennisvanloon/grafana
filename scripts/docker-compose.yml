@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  graphite:
+    image: graphiteapp/graphite-statsd:latest
+    container_name: graphite
+    ports:
+      - 2003:2003
+      - 80:80
+
+
+#  --restart=always\
+#  -p 2023-2024:2023-2024\
+#  -p 8125:8125/udp\
+#  -p 8126:8126\
+
+  grafana:
+    image: grafana/grafana:7.0.1
+    container_name: "grafana"
+    ports:
+      - 3000:3000
+
+#    volumes:
+#      - grafana-storage:/var/lib/grafana
+#  db:
+#    image: "postgres:11"
+#    container_name: "postgres_grafana"
+#    ports:
+#      - "54320:5432"
+#    volumes:
+#      - dbdata_grafana:/var/lib/postgresql/grafana_data
+#    environment:
+#      TZ: "Europe/Amsterdam"
+#volumes:
+#  dbdata_grafana:
+#  grafana-storage:
